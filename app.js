@@ -10,6 +10,13 @@
 
 const crawler = require('./util/youtube_crawler')
 
-let data = await crawler('cat')
 
-console.log(data)
+async function work() {
+  let data = await crawler('cat')
+  
+  console.log(data)
+}
+
+
+
+work()
