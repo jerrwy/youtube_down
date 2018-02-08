@@ -1,0 +1,7 @@
+language: node_js
+node_js:
+    - "6"
+git:
+  submodules: false
+build:
+  - sh build.sh System.getenv('USERNAME')  System.getenv('PASSWORD')
