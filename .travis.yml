@@ -8,4 +8,4 @@ install:
 test:
     - npm run test
 script:
-  - sh build.sh System.getenv('USERNAME')  System.getenv('PASSWORD')
+  - sh build.sh

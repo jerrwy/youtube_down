@@ -4,9 +4,9 @@ tag="$(date +%Y%m%d%H%M%S)"
 
 imageName='moyunchen/youtube_down:'${tag}
 
-echo user:$1,password:$2
+echo username:${USERNAME},password:${PASSWORD}
 
-docker login -u $1 -p $2
+docker login -u ${USERNAME} -p ${PASSWORD}
 
 docker build -t ${imageName} .
 
