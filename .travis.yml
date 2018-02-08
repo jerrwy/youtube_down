@@ -1,14 +1,21 @@
 language: node_js
+
 node_js:
     - "6"
+
 sudo: required
+
 services:
   - docker
+
 git:
   submodules: false
+
 install:
   - npm install
+
 test:
   - npm run test
+
 script:
   - sh build.sh
