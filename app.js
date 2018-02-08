@@ -1,6 +1,7 @@
 const crawler = require('./util/youtube_crawler')
 const youtube_dl = require('./util/youtube_dl')
 const dir = require('./util/dir')
+const sync2bd = require('./util/sync2bd')
 
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -24,7 +25,8 @@ app.get('/list', async (req, res) => {
 })
 
 app.get('/sync', async (req, res) => {
-  res.send('todo')
+  let data = await sync2bd.sync()
+  res.send(data)
 })
 
 app.post('/down', async (req, res) => {
