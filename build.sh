@@ -10,4 +10,4 @@ docker login -u $1 -p $2
 
 docker build -t ${imageName} .
 
-docker push ${imageName}
+docker push ${imageName} 
