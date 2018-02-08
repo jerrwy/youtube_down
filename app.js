@@ -1,29 +1,12 @@
-// let process = require('child_process')
-
-
-// process.exec('hello', (err, stdout, stderr) => {
-//   if (err !== null) {
-//     console.log('exec error: ' + err);
-//   }
-// })
-
-
 const crawler = require('./util/youtube_crawler')
-
-
-// async function work() {
-//   let data = await crawler('cat')
-  
-//   console.log(data)
-// }
-
-
-
-// work()
-
+const youtube_dl = require('./util/youtube_dl')
 
 const express = require('express')
+const bodyParser = require('body-parser')
 const app = express()
+
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 app.get('/ping', (req, res) => {
   res.send('pong')
@@ -31,6 +14,12 @@ app.get('/ping', (req, res) => {
 
 app.get('/search', async (req, res) => {
   let data = await crawler(req.query.q || 'cat')
+  res.send(data)
+})
+
+app.post('/down', async (req, res) => {
+  if(!req.body.url) return
+  let data = await youtube_dl.downVideo(req.body.url)
   res.send(data)
 })
 
