@@ -3,5 +3,9 @@ node_js:
     - "6"
 git:
   submodules: false
-build:
+install:
+    - npm install
+test:
+    - npm run test
+script:
   - sh build.sh System.getenv('USERNAME')  System.getenv('PASSWORD')
