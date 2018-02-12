@@ -11,12 +11,19 @@ app.use(require('cors')())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
+app.use((req,res,next) => {
+  if(req.path !== '/favicon.ico'){
+    console.log(`req: method:${req.method} path:${req.path} params:${JSON.stringify(Object.assign({},req.query,req.body))}`)
+  }
+  next()
+})
+
 app.get('/ping', (req, res) => {
   res.send('pong')
 })
 
 app.get('/search', async (req, res) => {
-  let data = await crawler(req.query.q || 'cat')
+  let data = await crawler(req.query.q || 'trending')
   res.send(data)
 })
 
