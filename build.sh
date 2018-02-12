@@ -1,8 +1,6 @@
 #!/bin/sh
 
-tag="$(date +%Y%m%d%H%M%S)"
-
-imageName='moyunchen/youtube_down:'${tag}
+imageName='moyunchen/youtube_down:lastest'
 
 echo username:${USERNAME},password:${PASSWORD}
 
